@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "claudia-api-dayphrase-executor",
+    "name": "claudia-api-dayphrase",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "xze8j8rvq6",
+    "module": "dayphrases"
+  }
+}

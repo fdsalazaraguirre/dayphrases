@@ -1,0 +1,36 @@
+{
+  "name": "dayphrases",
+  "version": "1.0.0",
+  "description": "testing claudia.js for day phrases",
+  "main": "dayphrases.js",
+  "files": [
+    "*.js"
+  ],
+  "dependencies": {
+    "claudia-api-builder": "^4.1.2",
+    "superb": "^3.0.0"
+  },
+  "devDependencies": {
+    "claudia": "^5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "claudia create --name claudia-api-dayphrase --region us-east-1 --api-module dayphrases",
+    "deploy": "claudia update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsalazarnearbpo/dayphrases.git"
+  },
+  "keywords": [
+    "claudia.js",
+    "endpoint",
+    "test"
+  ],
+  "author": "francisco daniel salazar aguirre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fsalazarnearbpo/dayphrases/issues"
+  },
+  "homepage": "https://github.com/fsalazarnearbpo/dayphrases#readme"
+}
