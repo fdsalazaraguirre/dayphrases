@@ -6,6 +6,15 @@ var ApiBuilder = require('claudia-api-builder'),
 	util = require('util');
 module.exports = api;
 
+// returning the sourceip and the country of the request
+api.get('/', function (request) {
+	'use strict';
+	return {
+		IP: request.context.sourceIp,
+		Country: request.headers['CloudFront-Viewer-Country']
+	};
+});
+
 // just return the result value for synchronous processing
 api.get('/hello', function () {
 	'use strict';
