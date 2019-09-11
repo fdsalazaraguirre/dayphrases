@@ -2,11 +2,12 @@
   "name": "dayphrases",
   "version": "1.0.0",
   "description": "testing claudia.js for day phrases",
-  "main": "dayphrases.js",
+  "main": "dayphrases-api.js",
   "files": [
     "*.js"
   ],
   "dependencies": {
+    "aws-sdk": "^2.525.0",
     "claudia-api-builder": "^4.1.2",
     "superb": "^3.0.0"
   },
@@ -15,8 +16,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "claudia create --name claudia-api-dayphrase --region us-east-1 --api-module dayphrases",
-    "deploy": "claudia update"
+    "start": "claudia create --name claudia-api-dayphrases2 --region us-east-1 --api-module dayphrases-api --policies policy",
+    "deploy": "claudia update --policies policy"
   },
   "repository": {
     "type": "git",
