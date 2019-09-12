@@ -82,22 +82,6 @@ api.post('/dayphrase', function (request) {
 	}
 	return dynamoDb.put(params).promise(); // returns dynamo result 
   }, { success: 201 }); // returns HTTP status 201 - Created if successful
-  
-  // Saving dayphrase on dynamodb with post
-api.post('/dayphrase/test', function (request) {
-	var params = {  
-	  TableName: 'dayphrases',  
-	  Item: {
-		  dayphraseid: request.body.id,
-		  phrase: request.body.Phrase,
-		  language: request.body.language,
-		  topic: request.body.topic,
-		  imageurl: request.body.imageurl
-	  } 
-	}
-	return request.body; // returns dynamo result 
-  }, { success: 201 }); // returns HTTP status 201 - Created if successful
-  
 
   api.get('/dayphrase', function (request) { // GET all users
 	return dynamoDb.scan({ TableName: 'dayphrases' }).promise()
