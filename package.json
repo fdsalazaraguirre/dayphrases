@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "claudia create --name claudia-api-dayphrases2 --region us-east-1 --api-module dayphrases-api --policies policy",
+    "start": "claudia create --name claudia-api-dayphrase --region us-east-1 --api-module dayphrases-api --policies policy",
     "deploy": "claudia update --policies policy"
   },
   "repository": {

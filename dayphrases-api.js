@@ -69,21 +69,38 @@ api.get('/dayphrase/random', function () {
 
 // Saving dayphrase on dynamodb with post
 api.post('/dayphrase', function (request) {
+	var body = JSON.parse(request.body);
 	var params = {  
-	  TableName: 'dayphrase',  
+	  TableName: 'dayphrases',  
 	  Item: {
-		  dayphraseid: request.body.dayphraseid,
-		  phrase: request.body.phrase,
-		  language: request.body.language,
-		  topic: request.body.topic,
-		  imageurl: request.body.imageurl,
+		  dayphraseid: body.dayphraseid,
+		  phrase: body.Phrase,
+		  language: body.language,
+		  topic: body.topic,
+		  imageurl: body.imageurl
 	  } 
 	}
 	return dynamoDb.put(params).promise(); // returns dynamo result 
   }, { success: 201 }); // returns HTTP status 201 - Created if successful
   
+  // Saving dayphrase on dynamodb with post
+api.post('/dayphrase/test', function (request) {
+	var params = {  
+	  TableName: 'dayphrases',  
+	  Item: {
+		  dayphraseid: request.body.id,
+		  phrase: request.body.Phrase,
+		  language: request.body.language,
+		  topic: request.body.topic,
+		  imageurl: request.body.imageurl
+	  } 
+	}
+	return request.body; // returns dynamo result 
+  }, { success: 201 }); // returns HTTP status 201 - Created if successful
+  
+
   api.get('/dayphrase', function (request) { // GET all users
-	return dynamoDb.scan({ TableName: 'icecreams' }).promise()
+	return dynamoDb.scan({ TableName: 'dayphrases' }).promise()
 		.then(response => response.Items)
   });
 
