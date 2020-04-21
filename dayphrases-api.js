@@ -87,11 +87,30 @@ api.post('/dayphrase', function (request) {
 	return dynamoDb.put(params).promise(); // returns dynamo result 
   }, { success: 201 }); // returns HTTP status 201 - Created if successful
 
+  // bring all dayphrases
   api.get('/dayphrase', function (request) { // GET all users
 	return dynamoDb.scan({ TableName: 'dayphrases' }).promise()
 		.then(response => response.Items)
   });
 
+  api.get('/dayphrase/{id}', function (request) { // GET a users
+	'use strict';
+	var id, params;
+	// Get the id from the pathParams
+	id = request.pathParams.id;
+	params = {
+		TableName: 'dayphrases',
+		Key: {
+			dayphraseid: id
+		}
+	};
+
+	// post-process dynamo result before returning
+	return dynamoDb.get(params).promise().then(function (response) {
+		return response.Item;
+	});
+  });
+  
   // delete user with {id}
 	api.delete('/dayphrase/{id}', function (request) {
 		'use strict';
